@@ -1,0 +1,92 @@
+//CALLICONDE CARRASCO CARMELA SANDRA
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    
+    class Estudiante
+    {
+        protected Materia materia;
+        
+        public Estudiante(Materia materias)
+        {
+            this.materia = materias;
+        }
+        
+        public virtual string Operation()
+        {
+            return "PRIMARIA: NOMBRE: Carlos Torrez Callisaya \n" + 
+                materia.OperationMaterias();
+        }
+    }
+
+
+    class EstudianteSecundaria :  Estudiante
+    {
+        public EstudianteSecundaria (Materia materias) : base(materias)
+        {
+        }
+        
+        public override string Operation()
+        {
+            return "SECUNDARIA : NOMBRE: Rosio Soto Valdez \n" +
+                base.materia.OperationMaterias();
+        }
+    }
+
+    
+    public interface Materia
+    {
+        string OperationMaterias();
+    }
+
+    // Each Concrete Implementation corresponds to a specific platform and
+    // implements the Implementation interface using that platform's API.
+    class Matematica : Materia
+    {
+        public string OperationMaterias()
+        {
+            return "MATEMATICAS: PRIMER PARCIAL:56  SEGUNDO PARCIAL: 78 TERCER PARCIAL:78 .\n";
+        }
+    }
+
+    class Lenguaje : Materia
+    {
+        public string OperationMaterias()
+        {
+            return "LENGUAJE: PRIMER PARCIAL:89  SEGUNDO PARCIAL: 56 TERCER PARCIAL:88.\n";
+        }
+    }
+
+    class Client
+    {
+      
+        public void ClientCode(Estudiante estudiante)
+        {
+            Console.Write(estudiante.Operation());
+        }
+    }
+    
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Client client = new Client();
+
+            Estudiante estudiante;
+
+            estudiante = new Estudiante(new Matematica());
+            client.ClientCode(estudiante);
+            
+            Console.WriteLine();
+            
+            estudiante = new EstudianteSecundaria (new Lenguaje());
+            client.ClientCode(estudiante);
+        }
+    }
+   
+}

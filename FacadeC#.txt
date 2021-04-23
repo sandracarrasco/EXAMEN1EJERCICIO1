@@ -1,0 +1,135 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+    
+    
+{
+    
+    public class teorica {
+   
+
+    public static  void buscarTeorica(String nombre,String apellido){
+        
+        String nom = "rosio";
+        String ap= "calliconde";
+        
+        if (nom == nombre && ap==apellido){
+            
+            Console.WriteLine("Introduzca Primer Parcial");
+           
+            Console.WriteLine("Introduzca Segundo Parcial");
+        
+            Console.WriteLine("Introduzca Tercer Parcial");
+   
+           
+
+            Console.WriteLine("nombre :"+nombre+"---------apellido :"+apellido);
+            Console.WriteLine("Primer Parcial :30 ");
+            Console.WriteLine("Segundo Parcial:30");
+            Console.WriteLine("Tercer Parcial : 30");
+            Console.WriteLine("Nota Final : 90 ");
+            
+           
+            
+            
+            
+            
+        }
+        
+        
+      }
+    }
+
+    
+        public class laboratorio {
+   
+   
+        public void buscarLaboratorio(String nombre,String apellido){
+        
+        String nom = "sandra";
+        String ap= "calliconde";
+     
+        
+        
+        if (nom == nombre && ap==apellido){
+            
+            int lab1=10;
+            int lab2=8;
+            int lab3=7;
+            int lab4=6;
+            int lab5=4;
+            int lab6=3;
+            int ef=25;
+            int nf=0;
+            nf=lab1+lab2+lab3+lab4+lab5+lab6+ef;
+            
+            Console.WriteLine("Introduzca nota de laboratorios");
+            Console.WriteLine("Introduzca nota del examen final");
+            
+            
+            Console.WriteLine("nombre :"+nombre+"---------apellido :"+apellido);
+            Console.WriteLine("Laboratorio1 "+lab1);
+            Console.WriteLine("Laboratorio2 "+lab2);
+            Console.WriteLine("Laboratorio3 "+lab3);
+            Console.WriteLine("Laboratorio4"+lab4);
+            Console.WriteLine("Laboratorio5 "+lab5);
+            Console.WriteLine("Laboratorio6 "+lab6);
+         
+            Console.WriteLine("NOTA EXAMEN FINAL "+ef);
+           
+            Console.WriteLine("NOTA FINAL"+nf);
+            
+            
+                
+                
+                
+                
+         
+            
+            
+            
+        }
+        
+      }
+    }
+
+    public class facade {
+    private laboratorio laboratorio;
+    private teorica teorica;
+    
+    
+    public facade(){
+         laboratorio = new laboratorio();
+         teorica = new teorica();
+         
+    }
+    public void buscar(String nombre,String apellido){
+        laboratorio.buscarLaboratorio(nombre, apellido);
+        teorica.buscarTeorica(nombre, apellido);
+        
+    }
+   }
+
+    
+    
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+      
+            facade estudiante1=new facade();
+            estudiante1.buscar("rosio","calliconde");
+        }
+    }
+    
+    
+
+    
+    
+    
+    
+}
